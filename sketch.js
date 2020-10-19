@@ -2,7 +2,7 @@ var Engine = Matter.Engine,
     World = Matter.World,
     Events = Matter.Events,
     Bodies = Matter.Bodies; 
-var particles = [];
+//var particles = [];
 var plinkos = [];
 var divisions =[];
 var particle;
@@ -60,15 +60,9 @@ function draw() {
   ground.display();
   
   if ( gameState =="end") {
-    
     textSize(100);
     text("GameOver", 150, 250);
-    //return
   }
-
-  
-
-  
 
   for (var i = 0; i < plinkos.length; i++) {
      plinkos[i].display();  
@@ -82,7 +76,7 @@ function draw() {
         {
               if (particle.body.position.x < 300) 
               {
-                  score=score+500;      
+                  score = score + 500;      
                   particle=null;
                   if ( count>= 5) gameState ="end";                          
               }
@@ -100,26 +94,21 @@ function draw() {
                     score = score + 200;
                     particle=null;
                     if ( count>= 5)  gameState ="end";
-
               }      
-              
         }
   
-      }
-
-   for (var k = 0; k < divisions.length; k++) 
+   }
+    for (var k = 0; k < divisions.length; k++) 
    {
      divisions[k].display();
    }
- 
 }
-
 
 function mousePressed()
 {
   if(gameState!=="end")
   {
       count++;
-     particle=new Particle(mouseX, 10, 10, 10); 
+     particle = new Particle(mouseX, 10, 10, 10); 
   }   
 }
